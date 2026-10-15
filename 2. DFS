@@ -1,0 +1,24 @@
+graph = {}
+
+n = int(input())
+
+for i in range(n):
+    node = int(input())
+    neighbours = list(map(int, input().split()))
+    graph[node] = neighbours
+
+visited = set()
+
+
+def dfs(node):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+
+        for neighbour in graph[node]:
+            dfs(neighbour)
+
+
+start = int(input())
+dfs(start)
+
