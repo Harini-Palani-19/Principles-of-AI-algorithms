@@ -1,0 +1,42 @@
+graph = {
+    'S': [('A', 4), ('B', 10), ('C', 11)],
+    'A': [('B', 8), ('D', 5)],
+    'B': [('D', 15)],
+    'C': [('D', 8), ('F', 2), ('E', 20)],
+    'D': [('H', 16), ('I', 20), ('F', 1)],
+    'E': [('G', 19)],
+    'F': [('G', 13)],
+    'H': [('I', 1), ('J', 2)],
+    'I': [('G', 5), ('J', 5), ('K', 13)],
+    'J': [('K', 7)],
+    'K': [('G', 16)],
+    'G': []
+}
+
+h = {
+    'S': 7, 'A': 8, 'B': 6, 'C': 5, 'D': 5,
+    'E': 3, 'F': 3, 'G': 0, 'H': 7, 'I': 4,
+    'J': 5, 'K': 3
+}
+
+open_list = [(h['S'], 0, 'S', ['S'])]
+visited = set()
+
+while open_list:
+    open_list.sort()
+    f, cost, node, path = open_list.pop(0)
+
+    if node == 'G':
+        print("Shortest path:", path)
+        print("Total cost:", cost)
+        break
+
+    if node not in visited:
+        visited.add(node)
+
+        for neighbor, edge in graph[node]:
+            if neighbor not in visited:
+                new_cost = cost + edge
+                new_f = new_cost + h[neighbor]
+                open_list.append((new_f, new_cost, neighbor,
+                                  path + [neighbor]))
