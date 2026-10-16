@@ -1,0 +1,11 @@
+facts = ["fever", "cough"]
+
+if "fever" in facts and "cough" in facts:
+    facts.append("flu")
+
+if "flu" in facts:
+    facts.append("medicine should be prescribed")
+
+print("Conclusions for Ravi:")
+print("Has flu" if "flu" in facts else "No flu")
+print("Medicine should be prescribed" if "medicine should be prescribed" in facts else "No medicine required")
