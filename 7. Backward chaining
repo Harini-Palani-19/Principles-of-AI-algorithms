@@ -1,0 +1,27 @@
+rules = {
+    "criminal": ["american", "weapon", "hostile"]
+}
+
+facts = [
+    ("american", "Robert"),
+    ("weapon", "Missile"),
+    ("hostile", "CountryA"),
+    ("owns", "CountryA", "Missile"),
+    ("sells", "Robert", "Missile", "CountryA")
+]
+
+def prove(goal):
+    if goal == "criminal":
+        return (
+            ("american", "Robert") in facts and
+            ("weapon", "Missile") in facts and
+            ("hostile", "CountryA") in facts and
+            ("sells", "Robert", "Missile", "CountryA") in facts
+        )
+
+result = prove("criminal")
+
+if result:
+    print("Robert is criminal")
+else:
+    print("Cannot prove Robert is criminal")
