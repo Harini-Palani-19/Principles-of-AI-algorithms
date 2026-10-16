@@ -1,0 +1,103 @@
+% 1. Likes Relationship
+
+likes(hari, apple).
+likes(raju, mango).
+likes(hari, mango).
+likes(priya, pizza).
+
+friend(X, Y) :-
+    likes(X, Z),
+    likes(Y, Z),
+    X \= Y.
+
+
+% 2. Campus Placement Eligibility
+
+student(hari, 8.5, no, good).
+student(raju, 7.0, no, good).
+student(priya, 9.0, yes, good).
+student(anu, 8.0, no, poor).
+
+eligible(Name) :-
+    student(Name, CGPA, Arrears, Communication),
+    CGPA >= 7.5,
+    Arrears = no,
+    Communication = good.
+
+
+% 3. Smart Home Automation
+
+temperature(high).
+dark.
+someone_home.
+
+action(turn_on_ac) :-
+    temperature(high),
+    someone_home.
+
+action(turn_on_lights) :-
+    dark,
+    someone_home.
+
+action(activate_security_alarm) :-
+    \+ someone_home.
+
+
+% 4. Library Management Expert System
+
+registered(hari).
+registered(raju).
+
+no_overdue(hari).
+no_overdue(priya).
+
+available(prolog).
+available(python).
+
+can_borrow(Student, Book) :-
+    registered(Student),
+    no_overdue(Student),
+    available(Book).
+
+
+% 5. Elective Course Recommendation
+
+interested(hari, ai).
+interested(raju, web).
+interested(priya, data_science).
+
+course(machine_learning, ai).
+course(deep_learning, ai).
+course(web_development, web).
+course(full_stack, web).
+course(big_data, data_science).
+course(data_mining, data_science).
+
+recommend(Student, Course) :-
+    interested(Student, Interest),
+    course(Course, Interest).
+
+
+% 6. Family Tree
+
+parent(john, mary).
+parent(john, david).
+parent(mary, alice).
+parent(mary, peter).
+parent(david, sam).
+
+grandparent(X, Y) :-
+    parent(X, Z),
+    parent(Z, Y).
+
+sibling(X, Y) :-
+    parent(Z, X),
+    parent(Z, Y),
+    X \= Y.
+
+ancestor(X, Y) :-
+    parent(X, Y).
+
+ancestor(X, Y) :-
+    parent(X, Z),
+    ancestor(Z, Y).
