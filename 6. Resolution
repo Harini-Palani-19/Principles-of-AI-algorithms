@@ -1,0 +1,21 @@
+def resolve(c1, c2):
+    for x in c1:
+        for y in c2:
+            if x == "not " + y or y == "not " + x:
+                resolvent = [i for i in c1 if i != x]
+                resolvent += [i for i in c2 if i != y]
+                return resolvent
+    return None
+
+c1 = ["Traffic jam", "not Rain"]
+c2 = ["Rain"]
+
+print("Clause 1:", c1)
+print("Clause 2:", c2)
+
+r = resolve(c1, c2)
+
+if r is not None:
+    print("Resolvent:", r if r else "Empty clause")
+else:
+    print("Resolution not possible")
