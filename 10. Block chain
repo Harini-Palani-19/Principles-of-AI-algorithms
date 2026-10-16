@@ -1,0 +1,23 @@
+A = "Table"
+B = "Table"
+C = "A"
+
+print("Initial State:")
+print("A is on", A)
+print("B is on", B)
+print("C is on", C)
+
+print("\nSteps:")
+print("1. Move C from A to Table")
+C = "Table"
+
+print("2. Move A from Table to B")
+A = "B"
+
+print("3. Move C from Table to A")
+C = "A"
+
+print("\nGoal State:")
+print("A is on", A)
+print("B is on", B)
+print("C is on", C)
