@@ -1,0 +1,11 @@
+def unify(x, y): substitution = {}
+
+return substitution
+
+if x == y:
+
+if x.islower() and x not in y: substitution[x] = y return substitution
+
+if y.islower() and y not in x: substitution[y] = x return substitution
+
+return None
